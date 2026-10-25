@@ -227,6 +227,23 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .tcard .thumb .pbtn::after{content:"";border-left:18px solid var(--paper);border-top:11px solid transparent;border-bottom:11px solid transparent;margin-left:5px}
 .tcard h3{font-family:var(--f-body);font-weight:600;font-size:1.02rem}
 .tcard p{color:var(--dust);font-size:.88rem}
+
+/* poster lightbox */
+.artwall figure{position:relative}
+.artwall img{cursor:zoom-in;transition:transform .25s ease,border-color .25s ease}
+.artwall img:hover{transform:translateY(-3px);border-color:var(--brass)}
+.artwall img:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.lb{position:fixed;inset:0;z-index:50;background:rgba(5,5,6,.97);display:grid;grid-template-rows:auto 1fr auto;padding:max(12px,env(safe-area-inset-top,0px)) max(12px,env(safe-area-inset-right,0px)) max(12px,env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px))}
+.lb-top{display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--paper)}
+.lb-top .label{color:var(--dust)}
+.lb-stage{position:relative;display:grid;place-items:center;min-height:0;padding:12px 0}
+.lb-stage img{max-width:100%;max-height:calc(100vh - 150px);max-height:calc(100dvh - 150px);width:auto;height:auto;object-fit:contain;box-shadow:0 20px 80px rgba(0,0,0,.6)}
+.lb-cap{max-width:none;text-align:center;color:var(--paper);font-size:.95rem;padding-bottom:4px}
+.lb button{appearance:none;border:1px solid var(--curtain);background:rgba(20,18,15,.8);color:var(--paper);width:48px;height:48px;border-radius:50%;display:grid;place-items:center;cursor:pointer}
+.lb button:hover{border-color:var(--brass);color:var(--brass)}
+.lb .lb-prev,.lb .lb-next{position:absolute;top:50%;transform:translateY(-50%)}
+.lb .lb-prev{left:0}.lb .lb-next{right:0}
+@media (max-width:520px){.lb .lb-prev,.lb .lb-next{top:auto;bottom:0;transform:none}}
 @media (max-width:860px){
   .feature{grid-template-columns:1fr}
   .lockup{display:none}
@@ -287,12 +304,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <div class="row-head"><h2>Now in development</h2><a class="label" href="#slate">Full slate →</a></div>
     <div class="posters">
       <a class="poster p-cole art" href="#burning-cole">
-        <img class="key" src="posters/burning-cole-cole.jpg" alt="" width="800" height="1200">
+        <img class="key" src="posters/burning-cole-cole.jpg" alt="" width="1024" height="1536">
         <span class="sr">Burning Cole, a dark comedy series. They thought he was finished.</span>
         <span class="status">Concept trailer</span>
       </a>
       <a class="poster p-ikenga art" href="#ikenga">
-        <img class="key" src="posters/ikenga-skull-motorbike.jpg" alt="" width="800" height="1200">
+        <img class="key" src="posters/ikenga-skull-motorbike.jpg" alt="" width="1024" height="1536">
         <span class="sr">Ikenga, a crime action thriller series. 250 years of service. One way out.</span>
         <span class="status">In development</span>
       </a>
@@ -330,8 +347,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <h1 style="font-size:var(--step-4);font-weight:500;margin:12px 0 18px">Every project, one room each</h1>
     <p style="color:var(--dust);font-size:var(--step-1);font-weight:300">Open any title for its story, characters, episodes, trailer and artwork.</p>
     <div class="posters" style="margin-top:40px">
-      <a class="poster p-cole art" href="#burning-cole"><img class="key" src="posters/burning-cole-cole.jpg" alt="" width="800" height="1200"><span class="sr">Burning Cole, a dark comedy series</span><span class="status">Concept trailer</span></a>
-      <a class="poster p-ikenga art" href="#ikenga"><img class="key" src="posters/ikenga-skull-motorbike.jpg" alt="" width="800" height="1200"><span class="sr">Ikenga, a crime action thriller series</span><span class="status">In development</span></a>
+      <a class="poster p-cole art" href="#burning-cole"><img class="key" src="posters/burning-cole-cole.jpg" alt="" width="1024" height="1536"><span class="sr">Burning Cole, a dark comedy series</span><span class="status">Concept trailer</span></a>
+      <a class="poster p-ikenga art" href="#ikenga"><img class="key" src="posters/ikenga-skull-motorbike.jpg" alt="" width="1024" height="1536"><span class="sr">Ikenga, a crime action thriller series</span><span class="status">In development</span></a>
       <a class="poster p-us" href="#collective"><span class="label genre">Drama</span><h3>Urban Shakespeare</h3><span class="status">Season one written</span></a>
       <a class="poster p-open" href="#join"><span class="label genre">Open slot</span><h3>Your story</h3><span class="status">Submissions open</span></a>
     </div>
@@ -403,7 +420,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
           <p>The series grew out of Obi's blog about years spent working in London nightclubs and bars: the dates, the rejections and everything that happens behind the velvet rope. Recognised UK artists feature throughout the series, putting the British music scene on screen where it belongs.</p>
         </div>
         <aside class="aside">
-          <img src="posters/burning-cole-cast-street.jpg" alt="Burning Cole cast poster: Cole and the cast outside Club 108 on a wet London night" width="800" height="1200">
+          <img src="posters/burning-cole-cast-street.jpg" alt="Burning Cole cast poster: Cole and the cast outside Club 108 on a wet London night" width="1024" height="1536">
           <span class="label">Genre</span><p>British dark comedy</p>
           <span class="label">Think</span><p>Sex and the City meets Entourage, in a London nightclub.</p>
           <span class="label">Audience</span><p>18–40, anyone who has ever had a big night out and wondered what goes on behind the bar.</p>
@@ -453,13 +470,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     </div>
     <div class="panel" data-panel="artwork" hidden>
       <div class="artwall">
-        <figure><img src="posters/burning-cole-fall.jpg" alt="Burning Cole teaser poster: a man falling between an upside-down London and the burning title" width="800" height="1200" loading="lazy"><figcaption>Teaser: the fall</figcaption></figure>
-        <figure><img src="posters/burning-cole-title.jpg" alt="Burning Cole title poster in burning letters over the London skyline" width="800" height="1200" loading="lazy"><figcaption>Title poster</figcaption></figure>
-        <figure><img src="posters/burning-cole-cole.jpg" alt="Burning Cole poster: Cole on a rainy London night outside the club" width="800" height="1200" loading="lazy"><figcaption>Cole Sinclair</figcaption></figure>
-        <figure><img src="posters/burning-cole-cast-street.jpg" alt="Burning Cole cast poster outside the club on a wet London night" width="800" height="1200" loading="lazy"><figcaption>The cast: outside the club</figcaption></figure>
-        <figure><img src="posters/burning-cole-cast-shattered.jpg" alt="Burning Cole cast poster with the cast framed in shards of broken glass" width="800" height="1200" loading="lazy"><figcaption>The cast: shattered glass</figcaption></figure>
-        <figure><img src="posters/burning-cole-cast-group.jpg" alt="Burning Cole cast poster with the cast on a London street at night" width="800" height="1200" loading="lazy"><figcaption>The cast: London streets</figcaption></figure>
-        <figure><img src="posters/burning-cole-cast-lounge.jpg" alt="Burning Cole cast poster in the club's VIP lounge" width="800" height="1200" loading="lazy"><figcaption>The cast: VIP lounge</figcaption></figure>
+        <figure><img src="posters/burning-cole-fall.jpg" alt="Burning Cole teaser poster: a man falling between an upside-down London and the burning title" width="1024" height="1536" loading="lazy"><figcaption>Teaser: the fall</figcaption></figure>
+        <figure><img src="posters/burning-cole-title.jpg" alt="Burning Cole title poster in burning letters over the London skyline" width="1024" height="1536" loading="lazy"><figcaption>Title poster</figcaption></figure>
+        <figure><img src="posters/burning-cole-cole.jpg" alt="Burning Cole poster: Cole on a rainy London night outside the club" width="1024" height="1536" loading="lazy"><figcaption>Cole Sinclair</figcaption></figure>
+        <figure><img src="posters/burning-cole-cast-street.jpg" alt="Burning Cole cast poster outside the club on a wet London night" width="1024" height="1536" loading="lazy"><figcaption>The cast: outside the club</figcaption></figure>
+        <figure><img src="posters/burning-cole-cast-shattered.jpg" alt="Burning Cole cast poster with the cast framed in shards of broken glass" width="1024" height="1536" loading="lazy"><figcaption>The cast: shattered glass</figcaption></figure>
+        <figure><img src="posters/burning-cole-cast-group.jpg" alt="Burning Cole cast poster with the cast on a London street at night" width="1024" height="1536" loading="lazy"><figcaption>The cast: London streets</figcaption></figure>
+        <figure><img src="posters/burning-cole-cast-lounge.jpg" alt="Burning Cole cast poster in the club's VIP lounge" width="1024" height="1536" loading="lazy"><figcaption>The cast: VIP lounge</figcaption></figure>
       </div>
     </div>
   </div>
@@ -507,7 +524,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
           <p>The season opens seven months ahead, with Arinze pinned down and shot in a farmyard, then goes back to show how he got there.</p>
         </div>
         <aside class="aside">
-          <img src="posters/ikenga-skull-motorbike.jpg" alt="Ikenga key art: Skull riding a motorbike across Westminster Bridge at night" width="800" height="1200">
+          <img src="posters/ikenga-skull-motorbike.jpg" alt="Ikenga key art: Skull riding a motorbike across Westminster Bridge at night" width="1024" height="1536">
           <span class="label">Genre</span><p>Crime action thriller</p>
           <span class="label">Season one</span><p>Eight episodes of about 50 minutes across seven months, opening with an extended 70-minute pilot.</p>
           <span class="label">Action</span><p>Rooftop chases, close-quarters fights, car and motorbike pursuits.</p>
@@ -540,17 +557,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     </div>
     <div class="panel" data-panel="artwork" hidden>
       <div class="artwall">
-        <figure><img src="posters/ikenga-skull-motorbike.jpg" alt="Ikenga key art: Arinze and the Mmanwu mask above Skull riding a motorbike across Westminster Bridge at night" width="800" height="1200" loading="lazy"><figcaption>Key art: Skull on the bridge</figcaption></figure>
-        <figure><img src="posters/ikenga-alley.jpg" alt="Ikenga poster: Arinze in a grey suit in a London alley, with the elder and Skull behind him" width="800" height="1200" loading="lazy"><figcaption>The alley</figcaption></figure>
-        <figure><img src="posters/ikenga-partners.jpg" alt="Ikenga poster: Arinze above the elder and two senior partners of the firm" width="800" height="1200" loading="lazy"><figcaption>The partners</figcaption></figure>
-        <figure><img src="posters/ikenga-office.jpg" alt="Ikenga poster: Arinze behind a desk in an oak-panelled office overlooking Westminster, flanked by two partners" width="800" height="1200" loading="lazy"><figcaption>The firm</figcaption></figure>
-        <figure><img src="posters/ikenga-gala.jpg" alt="Ikenga poster: Arinze and a woman in a blue gown at a marble gala" width="800" height="1200" loading="lazy"><figcaption>The gala</figcaption></figure>
-        <figure><img src="posters/ikenga-elder.jpg" alt="Ikenga poster: the elder with a cane on a cobbled street behind Arinze" width="800" height="1200" loading="lazy"><figcaption>The elder</figcaption></figure>
-        <figure><img src="posters/ikenga-mmanwu-skull.jpg" alt="Ikenga poster: Mmanwu in a leather armchair with Skull standing beside him in a red-lit lounge" width="800" height="1200" loading="lazy"><figcaption>Mmanwu and Skull</figcaption></figure>
-        <figure><img src="posters/ikenga-ensemble.jpg" alt="Ikenga ensemble poster: Arinze and the Mmanwu mask above the cast in front of the Houses of Parliament" width="800" height="1200" loading="lazy"><figcaption>The cast</figcaption></figure>
-        <figure><img src="posters/ikenga-armoury.jpg" alt="Ikenga poster: Arinze in a grey suit in an armoury with an associate" width="800" height="1200" loading="lazy"><figcaption>The armoury: grey suit</figcaption></figure>
-        <figure><img src="posters/ikenga-armoury-black.jpg" alt="Ikenga poster: Arinze in a black suit in an armoury with an associate" width="800" height="1200" loading="lazy"><figcaption>The armoury: black suit</figcaption></figure>
-        <figure><img src="posters/ikenga-armoury-tactical.jpg" alt="Ikenga poster: Arinze in tactical gear in an armoury with an associate" width="800" height="1200" loading="lazy"><figcaption>The armoury: tactical</figcaption></figure>
+        <figure><img src="posters/ikenga-skull-motorbike.jpg" alt="Ikenga key art: Arinze and the Mmanwu mask above Skull riding a motorbike across Westminster Bridge at night" width="1024" height="1536" loading="lazy"><figcaption>Key art: Skull on the bridge</figcaption></figure>
+        <figure><img src="posters/ikenga-alley.jpg" alt="Ikenga poster: Arinze in a grey suit in a London alley, with the elder and Skull behind him" width="1024" height="1536" loading="lazy"><figcaption>The alley</figcaption></figure>
+        <figure><img src="posters/ikenga-partners.jpg" alt="Ikenga poster: Arinze above the elder and two senior partners of the firm" width="1024" height="1536" loading="lazy"><figcaption>The partners</figcaption></figure>
+        <figure><img src="posters/ikenga-office.jpg" alt="Ikenga poster: Arinze behind a desk in an oak-panelled office overlooking Westminster, flanked by two partners" width="1024" height="1536" loading="lazy"><figcaption>The firm</figcaption></figure>
+        <figure><img src="posters/ikenga-gala.jpg" alt="Ikenga poster: Arinze and a woman in a blue gown at a marble gala" width="1024" height="1536" loading="lazy"><figcaption>The gala</figcaption></figure>
+        <figure><img src="posters/ikenga-elder.jpg" alt="Ikenga poster: the elder with a cane on a cobbled street behind Arinze" width="1024" height="1536" loading="lazy"><figcaption>The elder</figcaption></figure>
+        <figure><img src="posters/ikenga-mmanwu-skull.jpg" alt="Ikenga poster: Mmanwu in a leather armchair with Skull standing beside him in a red-lit lounge" width="1024" height="1536" loading="lazy"><figcaption>Mmanwu and Skull</figcaption></figure>
+        <figure><img src="posters/ikenga-ensemble.jpg" alt="Ikenga ensemble poster: Arinze and the Mmanwu mask above the cast in front of the Houses of Parliament" width="1024" height="1536" loading="lazy"><figcaption>The cast</figcaption></figure>
+        <figure><img src="posters/ikenga-armoury.jpg" alt="Ikenga poster: Arinze in a grey suit in an armoury with an associate" width="1024" height="1536" loading="lazy"><figcaption>The armoury</figcaption></figure>
       </div>
     </div>
   </div>
@@ -614,6 +629,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 </section>
 </main>
 
+<div class="lb" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Poster viewer">
+  <div class="lb-top"><span class="label" id="lbCount"></span><button type="button" class="lb-close" aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="lb-stage">
+    <img id="lbImg" alt="">
+    <button type="button" class="lb-prev" aria-label="Previous poster"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <button type="button" class="lb-next" aria-label="Next poster"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+  </div>
+  <p class="lb-cap" id="lbCap"></p>
+</div>
+
 <footer>
   <div class="wrap">
     <span style="display:flex;align-items:center;gap:10px"><img src="brand/logo-emblem.png" alt="" width="28" height="28">© 2026 Urban Shakespeare ENT · London</span>
@@ -666,6 +691,27 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     bar.addEventListener('click',e=>{const r=bar.getBoundingClientRect();const d=a.duration||159;a.currentTime=(e.clientX-r.left)/r.width*d});
     bar.addEventListener('keydown',e=>{if(e.key==='ArrowRight')a.currentTime+=5;if(e.key==='ArrowLeft')a.currentTime-=5});
     window.addEventListener('hashchange',()=>{if(location.hash!=='#ikenga')a.pause()});
+  })();
+
+  (function(){
+    const lb=document.getElementById('lightbox'); if(!lb) return;
+    const img=document.getElementById('lbImg'), cap=document.getElementById('lbCap'), cnt=document.getElementById('lbCount');
+    let set=[], i=0, last=null;
+    const show=()=>{const el=set[i];img.src=el.currentSrc||el.src;img.alt=el.alt;cap.textContent=el.closest('figure').querySelector('figcaption')?.textContent||'';cnt.textContent=(i+1)+' / '+set.length;};
+    const open=el=>{set=[...el.closest('.artwall').querySelectorAll('img')];i=set.indexOf(el);last=el;show();lb.hidden=false;document.body.style.overflow='hidden';lb.querySelector('.lb-close').focus();};
+    const close=()=>{lb.hidden=true;document.body.style.overflow='';if(last)last.focus();};
+    const step=d=>{i=(i+d+set.length)%set.length;show();};
+    document.querySelectorAll('.artwall img').forEach(el=>{el.tabIndex=0;el.setAttribute('role','button');el.title='View full poster';
+      el.addEventListener('click',()=>open(el));
+      el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open(el);}});});
+    lb.querySelector('.lb-close').addEventListener('click',close);
+    lb.querySelector('.lb-prev').addEventListener('click',()=>step(-1));
+    lb.querySelector('.lb-next').addEventListener('click',()=>step(1));
+    lb.addEventListener('click',e=>{if(e.target===lb||e.target.classList.contains('lb-stage'))close();});
+    document.addEventListener('keydown',e=>{if(lb.hidden)return;if(e.key==='Escape')close();if(e.key==='ArrowRight')step(1);if(e.key==='ArrowLeft')step(-1);});
+    let x0=null;lb.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
+    lb.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>50)step(dx<0?1:-1);x0=null;});
+    window.addEventListener('hashchange',()=>{if(!lb.hidden)close();});
   })();
 </script>
 
