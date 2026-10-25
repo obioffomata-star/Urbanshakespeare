@@ -206,7 +206,29 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .theme .bar{height:4px;background:var(--curtain);cursor:pointer;position:relative}
 .theme .bar span{position:absolute;inset:0 auto 0 0;width:0;background:var(--accent,var(--brass))}
 .theme time{font-size:.78rem;color:var(--dust);font-variant-numeric:tabular-nums}
+
+/* trailers */
+.vid{position:relative;background:#000;border:1px solid var(--curtain)}
+.vid video{display:block;width:100%;aspect-ratio:16/9;max-width:100%;background:#000}
+.feature{display:grid;grid-template-columns:2fr 1fr;gap:32px;align-items:start;margin-top:36px}
+.feature > *{min-width:0}
+.feature .info{display:grid;gap:14px;align-content:start}
+.feature .info h2{font-family:var(--f-body);font-stretch:62%;font-weight:800;text-transform:uppercase;font-size:var(--step-3);color:var(--ember);letter-spacing:-.01em}
+.feature .info dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:0}
+.feature .info dt{font-stretch:75%;font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:.68rem;color:var(--dust);padding-top:3px}
+.feature .info dd{margin:0}
+.trail-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+.tcard{display:grid;gap:10px;text-decoration:none}
+.tcard .thumb{position:relative;aspect-ratio:16/9;max-width:100%;overflow:hidden;border:1px solid var(--curtain);background:var(--stage)}
+.tcard .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.tcard .thumb.dim img{filter:grayscale(.4) brightness(.45)}
+.tcard .thumb .badge{position:absolute;left:12px;bottom:12px;font-stretch:75%;font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:.64rem;padding:5px 9px;background:rgba(0,0,0,.65);border:1px solid currentColor;color:var(--brass)}
+.tcard .thumb .pbtn{position:absolute;inset:0;margin:auto;width:64px;height:64px;border-radius:50%;border:2px solid var(--paper);display:grid;place-items:center;background:rgba(0,0,0,.35)}
+.tcard .thumb .pbtn::after{content:"";border-left:18px solid var(--paper);border-top:11px solid transparent;border-bottom:11px solid transparent;margin-left:5px}
+.tcard h3{font-family:var(--f-body);font-weight:600;font-size:1.02rem}
+.tcard p{color:var(--dust);font-size:.88rem}
 @media (max-width:860px){
+  .feature{grid-template-columns:1fr}
   .lockup{display:none}
   .hero,.two,.story,.join{grid-template-columns:1fr;gap:32px}
   .billing{border-left:none;padding-left:0;border-top:1px solid var(--curtain);padding-top:24px}
@@ -231,6 +253,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <nav class="main" aria-label="Main">
       <a href="#home">Home</a>
       <a href="#slate">The Slate</a>
+      <a href="#trailers">Trailers</a>
       <a href="#burning-cole">Burning Cole</a>
       <a href="#ikenga">Ikenga</a>
       <a href="#collective">Our Story</a>
@@ -249,7 +272,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
         <h1 style="margin-top:14px">Stories from the inner city, <em>ready for the screen.</em></h1>
         <p class="lede">Urban Shakespeare is a writers' collective. We build TV and film concepts all the way through: scripts, episodes, characters, trailers and key art. Then we put them in front of the people who commission.</p>
         <div class="cta-row">
-          <a class="btn solid" href="#slate">Watch the slate</a>
+          <a class="btn solid" href="#trailers">Watch the trailer</a>
           <a class="btn" href="#join">Bring us your story</a>
         </div>
       </div>
@@ -287,6 +310,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       </a>
     </div>
 
+    <div class="row-head"><h2>Latest trailer</h2><a class="label" href="#trailers">All trailers →</a></div>
+    <div class="trail-grid" style="grid-template-columns:minmax(0,640px)">
+      <a class="tcard" href="#trailers"><div class="thumb"><img src="video/burning-cole-trailer-poster.jpg" alt="" loading="lazy"><span class="pbtn"></span><span class="badge" style="color:var(--ember)">Watch now · 1:21</span></div><h3>Burning Cole · Official trailer</h3><p>They thought he was finished.</p></a>
+    </div>
+
     <div class="manifesto">
       <div><span class="label">The problem</span><h3>The door was shut</h3><p>Writers from working-class and diaspora backgrounds rarely get the network or the money to get a pilot made.</p></div>
       <div><span class="label">The shift</span><h3>AI changed the cost</h3><p>We can now show a series as a trailer, a poster and a world before anyone signs a cheque.</p></div>
@@ -306,6 +334,37 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <a class="poster p-ikenga art" href="#ikenga"><img class="key" src="posters/ikenga-skull-motorbike.jpg" alt="" width="800" height="1200"><span class="sr">Ikenga, a crime action thriller series</span><span class="status">In development</span></a>
       <a class="poster p-us" href="#collective"><span class="label genre">Drama</span><h3>Urban Shakespeare</h3><span class="status">Season one written</span></a>
       <a class="poster p-open" href="#join"><span class="label genre">Open slot</span><h3>Your story</h3><span class="status">Submissions open</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- TRAILERS -->
+<section class="view" id="v-trailers" hidden>
+  <div class="wrap">
+    <p class="label">Trailers</p>
+    <h1 style="font-size:var(--step-4);font-weight:500;margin:12px 0 18px">See the shows before they're made</h1>
+    <p style="color:var(--dust);font-size:var(--step-1);font-weight:300">Every trailer here is an AI-generated concept, built from our scripts to show what each series will look and feel like on screen.</p>
+    <div class="feature">
+      <div class="vid"><video controls preload="none" playsinline poster="video/burning-cole-trailer-poster.jpg" aria-label="Burning Cole official trailer"><source src="video/burning-cole-trailer.mp4" type="video/mp4"></video></div>
+      <div class="info">
+        <span class="label">Now showing</span>
+        <h2>Burning Cole</h2>
+        <p class="label" style="color:var(--paper);letter-spacing:.3em">They thought he was finished.</p>
+        <p style="color:var(--dust)">The official concept trailer. Cole Sinclair runs Club 108, and his life is about to catch up with him.</p>
+        <dl>
+          <dt>Type</dt><dd>Official trailer</dd>
+          <dt>Length</dt><dd>1:21</dd>
+          <dt>Genre</dt><dd>British dark comedy</dd>
+          <dt>Created by</dt><dd>Obi Offomata &amp; Camilo Parra-Braun</dd>
+        </dl>
+        <a class="btn" href="#burning-cole" style="justify-self:start;margin-top:6px">Explore the show</a>
+      </div>
+    </div>
+    <div class="row-head"><h2>Coming next</h2></div>
+    <div class="trail-grid">
+      <a class="tcard" href="#ikenga"><div class="thumb dim"><img src="posters/ikenga-skull-motorbike.jpg" alt="" loading="lazy"><span class="badge" style="color:var(--bronze)">In development</span></div><h3>Ikenga · Concept trailer</h3><p>Crime action thriller. 250 years of service. One way out.</p></a>
+      <a class="tcard" href="#burning-cole"><div class="thumb dim"><img src="posters/burning-cole-cast-lounge.jpg" alt="" loading="lazy"><span class="badge" style="color:var(--ember)">Coming soon</span></div><h3>Burning Cole · Meet the Cast</h3><p>Cole introduces the five people who run his life.</p></a>
+      <a class="tcard" href="#burning-cole"><div class="thumb dim"><img src="posters/burning-cole-cast-street.jpg" alt="" loading="lazy"><span class="badge" style="color:var(--ember)">Coming soon</span></div><h3>Burning Cole · Pilot Cut</h3><p>A comedy montage from the pilot.</p></a>
     </div>
   </div>
 </section>
@@ -385,11 +444,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       </div>
     </div>
     <div class="panel" data-panel="trailer" hidden>
-      <div class="screen"><div><div class="play"></div><p class="label">Concept trailers · coming soon</p><p style="color:var(--dust);margin-top:8px">Trailers will play here once they're on YouTube.</p></div></div>
+      <div class="vid"><video controls preload="none" playsinline poster="video/burning-cole-trailer-poster.jpg" aria-label="Burning Cole official trailer"><source src="video/burning-cole-trailer.mp4" type="video/mp4"></video></div>
       <div class="eps">
-        <div class="ep"><span class="n">1</span><div><h3>Teaser</h3><p>A narrated teaser: a gun, a club and a choice.</p></div><span class="label">1:13</span></div>
-        <div class="ep"><span class="n">2</span><div><h3>Pilot Cut</h3><p>A comedy montage from the pilot.</p></div><span class="label">2:20</span></div>
-        <div class="ep"><span class="n">3</span><div><h3>Meet the Cast</h3><p>Cole introduces the five people who run his life.</p></div><span class="label">2:18</span></div>
+        <div class="ep"><span class="n">1</span><div><h3>Official Trailer</h3><p>Cole Sinclair, Club 108, and a life about to catch up with him.</p></div><span class="label">1:21 · Out now</span></div>
+        <div class="ep"><span class="n">2</span><div><h3>Meet the Cast</h3><p>Cole introduces the five people who run his life.</p></div><span class="label">Coming soon</span></div>
+        <div class="ep"><span class="n">3</span><div><h3>Pilot Cut</h3><p>A comedy montage from the pilot.</p></div><span class="label">Coming soon</span></div>
       </div>
     </div>
     <div class="panel" data-panel="artwork" hidden>
@@ -564,7 +623,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 <script>
 (function(){
-  const views=['home','slate','burning-cole','ikenga','collective','join'];
+  const views=['home','slate','trailers','burning-cole','ikenga','collective','join'];
   function show(){
     let v=(location.hash||'#home').slice(1);
     if(!views.includes(v)) v='home';
@@ -572,6 +631,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     document.querySelectorAll('nav.main a').forEach(a=>{
       a.getAttribute('href')==='#'+v ? a.setAttribute('aria-current','page') : a.removeAttribute('aria-current');
     });
+    document.querySelectorAll('video').forEach(v=>{if(!v.paused)v.pause()});
     window.scrollTo(0,0);
   }
   window.addEventListener('hashchange',show); show();
