@@ -183,6 +183,19 @@ input:focus,select:focus,textarea:focus{border-color:var(--brass);outline:none}
 footer{border-top:1px solid var(--curtain);padding-block:36px;color:var(--dust);font-size:.85rem}
 footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
+
+/* real key art */
+.poster.art{padding:0;justify-content:flex-end}
+.poster.art img.key{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.poster.art::before{background:linear-gradient(to top,rgba(0,0,0,.8),transparent 28%)}
+.poster.art .status{margin:0 0 18px 20px;background:rgba(0,0,0,.55)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.aside img{width:100%;aspect-ratio:2/3;object-fit:cover;margin:-24px -24px 4px;max-width:calc(100% + 48px);width:calc(100% + 48px)}
+.artwall{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
+.artwall figure{margin:0;display:grid;gap:8px}
+.artwall img{width:100%;aspect-ratio:2/3;object-fit:cover;border:1px solid var(--curtain)}
+.artwall figcaption{font-size:.85rem;color:var(--dust)}
+.artwall .todo{aspect-ratio:2/3;border:1px dashed var(--curtain);display:grid;place-items:center;color:var(--dust);font-size:.85rem;text-align:center;padding:12px}
 @media (max-width:860px){
   .hero,.two,.story,.join{grid-template-columns:1fr;gap:32px}
   .billing{border-left:none;padding-left:0;border-top:1px solid var(--curtain);padding-top:24px}
@@ -239,10 +252,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
     <div class="row-head"><h2>Now in development</h2><a class="label" href="#slate">Full slate →</a></div>
     <div class="posters">
-      <a class="poster p-cole" href="#burning-cole">
-        <span class="label genre">Dark comedy · Series</span>
-        <h3>Burning Cole</h3>
-        <p class="tag">Cole runs London's hottest club. His life runs him.</p>
+      <a class="poster p-cole art" href="#burning-cole">
+        <img class="key" src="posters/burning-cole-key-art.jpg" alt="" width="800" height="1200">
+        <span class="sr">Burning Cole, a dark comedy series. They thought he was finished.</span>
         <span class="status">Concept trailer</span>
       </a>
       <a class="poster p-ikenga" href="#ikenga">
@@ -280,7 +292,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <h1 style="font-size:var(--step-4);font-weight:500;margin:12px 0 18px">Every project, one room each</h1>
     <p style="color:var(--dust);font-size:var(--step-1);font-weight:300">Open any title for its story, characters, episodes, trailer and artwork.</p>
     <div class="posters" style="margin-top:40px">
-      <a class="poster p-cole" href="#burning-cole"><span class="label genre">Dark comedy</span><h3>Burning Cole</h3><span class="status">Concept trailer</span></a>
+      <a class="poster p-cole art" href="#burning-cole"><img class="key" src="posters/burning-cole-key-art.jpg" alt="" width="800" height="1200"><span class="sr">Burning Cole, a dark comedy series</span><span class="status">Concept trailer</span></a>
       <a class="poster p-ikenga" href="#ikenga"><span class="label genre">Crime action thriller</span><h3>Ikenga</h3><span class="status">In development</span></a>
       <a class="poster p-us" href="#collective"><span class="label genre">Drama</span><h3>Urban Shakespeare</h3><span class="status">Season one written</span></a>
       <a class="poster p-open" href="#join"><span class="label genre">Open slot</span><h3>Your story</h3><span class="status">Submissions open</span></a>
@@ -294,6 +306,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <div class="room-hero">
       <p class="label">Original series · British dark comedy</p>
       <h1>Burning Cole</h1>
+      <p class="label" style="color:var(--paper);letter-spacing:.3em">They thought he was finished.</p>
       <p class="logline">Cole Sinclair runs Club 108, a luxury West End nightclub. He also has a boss with two wives, a feisty assistant manager, a gangster on speed dial, one real friend and court-ordered therapy. And he's telling you all about it.</p>
       <div class="facts">
         <div><span class="label">Format</span><strong>8 × 50–60 min · season one</strong></div>
@@ -321,6 +334,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
           <p>The series grew out of Obi's blog about years spent working in London nightclubs and bars: the dates, the rejections and everything that happens behind the velvet rope. Recognised UK artists feature throughout the series, putting the British music scene on screen where it belongs.</p>
         </div>
         <aside class="aside">
+          <img src="posters/burning-cole-key-art.jpg" alt="Burning Cole key art: Cole in a dark suit on a rainy London night" width="800" height="1200">
           <span class="label">Genre</span><p>British dark comedy</p>
           <span class="label">Think</span><p>Sex and the City meets Entourage, in a London nightclub.</p>
           <span class="label">Audience</span><p>18–40, anyone who has ever had a big night out and wondered what goes on behind the bar.</p>
@@ -369,7 +383,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       </div>
     </div>
     <div class="panel" data-panel="artwork" hidden>
-      <div class="gallery"><div>Key art: molten-gold title card</div><div>Cole Sinclair</div><div>Anna Saunders</div><div>Club 108 by night</div><div>The cast</div></div>
+      <div class="artwall">
+        <figure><img src="posters/burning-cole-key-art.jpg" alt="Burning Cole key art: Cole on a rainy London night, with Club 108 and the cast behind him" width="800" height="1200" loading="lazy"><figcaption>Key art</figcaption></figure>
+        <figure><img src="posters/burning-cole-title.jpg" alt="Burning Cole title poster in burning gold letters" width="800" height="1200" loading="lazy"><figcaption>Title poster</figcaption></figure>
+        <figure><img src="posters/burning-cole-fall.jpg" alt="Burning Cole teaser poster: a man falling through smoke towards the burning title" width="800" height="1200" loading="lazy"><figcaption>Teaser poster: the fall</figcaption></figure>
+        <figure><div class="todo">More posters coming soon</div></figure>
+      </div>
     </div>
   </div>
 </section>
