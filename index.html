@@ -196,6 +196,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .artwall img{width:100%;aspect-ratio:2/3;object-fit:cover;border:1px solid var(--curtain)}
 .artwall figcaption{font-size:.85rem;color:var(--dust)}
 .artwall .todo{aspect-ratio:2/3;border:1px dashed var(--curtain);display:grid;place-items:center;color:var(--dust);font-size:.85rem;text-align:center;padding:12px}
+
+/* theme player */
+.theme{display:flex;align-items:center;gap:16px;margin-top:14px;padding:14px 18px;border:1px solid var(--curtain);background:var(--stage);max-width:520px}
+.theme button{flex:none;width:48px;height:48px;border-radius:50%;border:1px solid var(--accent,var(--brass));background:transparent;color:var(--accent,var(--brass));cursor:pointer;display:grid;place-items:center}
+.theme button:hover{background:color-mix(in srgb,var(--accent,var(--brass)) 15%,transparent)}
+.theme .meta{flex:1;min-width:0;display:grid;gap:6px}
+.theme .meta strong{font-weight:600;font-size:.95rem}
+.theme .bar{height:4px;background:var(--curtain);cursor:pointer;position:relative}
+.theme .bar span{position:absolute;inset:0 auto 0 0;width:0;background:var(--accent,var(--brass))}
+.theme time{font-size:.78rem;color:var(--dust);font-variant-numeric:tabular-nums}
 @media (max-width:860px){
   .lockup{display:none}
   .hero,.two,.story,.join{grid-template-columns:1fr;gap:32px}
@@ -410,6 +420,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
         <div><span class="label">Status</span><strong>Pilot in writing</strong></div>
         <div><span class="label">Created by</span><strong>Obi Offomata</strong></div>
       </div>
+      <div class="theme" id="ikengaTheme">
+        <button type="button" aria-label="Play the Ikenga theme"><svg class="i-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg><svg class="i-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg></button>
+        <div class="meta">
+          <span class="label">Main theme</span>
+          <strong>Ikenga</strong>
+          <div class="bar" role="slider" aria-label="Seek" tabindex="0" aria-valuemin="0" aria-valuemax="159" aria-valuenow="0"><span></span></div>
+          <time>0:00 / 2:39</time>
+        </div>
+        <audio preload="none" src="audio/ikenga-theme.mp3"></audio>
+      </div>
     </div>
     <div class="tabs" role="tablist" data-room="ikenga">
       <button role="tab" aria-selected="true" data-tab="overview">Overview</button>
@@ -574,6 +594,19 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
                       : "Add your name and a valid email address so we can reply.";
   });
 })();
+
+  (function(){
+    const box=document.getElementById('ikengaTheme'); if(!box) return;
+    const a=box.querySelector('audio'), b=box.querySelector('button'), bar=box.querySelector('.bar'), fill=bar.querySelector('span'), t=box.querySelector('time');
+    const fmt=s=>{s=Math.floor(s||0);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
+    const ui=()=>{const p=!a.paused;box.querySelector('.i-play').hidden=p;box.querySelector('.i-pause').hidden=!p;b.setAttribute('aria-label',(p?'Pause':'Play')+' the Ikenga theme')};
+    b.addEventListener('click',()=>{a.paused?a.play().catch(()=>{}):a.pause()});
+    a.addEventListener('play',ui);a.addEventListener('pause',ui);a.addEventListener('ended',ui);
+    a.addEventListener('timeupdate',()=>{const d=a.duration||159;fill.style.width=(a.currentTime/d*100)+'%';t.textContent=fmt(a.currentTime)+' / '+fmt(d);bar.setAttribute('aria-valuenow',Math.floor(a.currentTime))});
+    bar.addEventListener('click',e=>{const r=bar.getBoundingClientRect();const d=a.duration||159;a.currentTime=(e.clientX-r.left)/r.width*d});
+    bar.addEventListener('keydown',e=>{if(e.key==='ArrowRight')a.currentTime+=5;if(e.key==='ArrowLeft')a.currentTime-=5});
+    window.addEventListener('hashchange',()=>{if(location.hash!=='#ikenga')a.pause()});
+  })();
 </script>
 
 </body>
