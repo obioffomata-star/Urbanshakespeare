@@ -687,6 +687,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
         <div><b>Visual creators</b><p>AI artists, editors and designers who can turn a script into a trailer.</p></div>
         <div><b>Producers and partners</b><p>People who can take a concept from this site to a commissioner.</p></div>
       </div>
+      <div class="follow"><span class="label">Email us</span><a href="mailto:info@urbanshakespeare.com" style="color:var(--brass);font-size:1.05rem">info@urbanshakespeare.com</a></div>
       <div class="follow"><span class="label">Follow us</span><nav class="social" aria-label="Follow Urban Shakespeare"><a class="soc soon" data-social="youtube" aria-label="YouTube (coming soon)" title="YouTube: coming soon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.7 15.1V8.9l5.8 3.1z"/></svg></a><a class="soc soon" data-social="x" aria-label="X (Twitter) (coming soon)" title="X (Twitter): coming soon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.2 2.3h3.4l-7.4 8.4 8.7 11.5h-6.8l-5.3-7-6.1 7H1.3l7.9-9L.9 2.3h7l4.8 6.4zm-1.2 17.9h1.9L7.1 4.2H5z"/></svg></a><a class="soc soon" data-social="instagram" aria-label="Instagram (coming soon)" title="Instagram: coming soon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a class="soc soon" data-social="facebook" aria-label="Facebook (coming soon)" title="Facebook: coming soon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v8h4v-8h3l.5-4h-3.5V8.8c0-.5.3-.8.5-.8z"/></svg></a></nav></div>
     </div>
     <form id="joinForm" novalidate>
@@ -722,7 +723,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
   <div class="wrap">
     <span style="display:flex;align-items:center;gap:10px"><img src="brand/logo-emblem.png" alt="" width="28" height="28">© 2026 Urban Shakespeare ENT · London</span>
     <nav class="social" aria-label="Urban Shakespeare on social media"><a class="soc soon" data-social="youtube" aria-label="YouTube (coming soon)" title="YouTube: coming soon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.7 15.1V8.9l5.8 3.1z"/></svg></a><a class="soc soon" data-social="x" aria-label="X (Twitter) (coming soon)" title="X (Twitter): coming soon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.2 2.3h3.4l-7.4 8.4 8.7 11.5h-6.8l-5.3-7-6.1 7H1.3l7.9-9L.9 2.3h7l4.8 6.4zm-1.2 17.9h1.9L7.1 4.2H5z"/></svg></a><a class="soc soon" data-social="instagram" aria-label="Instagram (coming soon)" title="Instagram: coming soon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a class="soc soon" data-social="facebook" aria-label="Facebook (coming soon)" title="Facebook: coming soon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v8h4v-8h3l.5-4h-3.5V8.8c0-.5.3-.8.5-.8z"/></svg></a></nav>
-    <span>urbanshakespeare.com</span>
+    <a href="mailto:info@urbanshakespeare.com" style="color:var(--dust)">info@urbanshakespeare.com</a>
   </div>
 </footer>
 
@@ -755,7 +756,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
     const n=document.getElementById('formNote');
     const ok=document.getElementById('f-name').value.trim() && /\S+@\S+\.\S+/.test(document.getElementById('f-email').value);
     n.hidden=false;
-    n.textContent= ok ? "Thanks. This is the preview site, so pitches aren't sent yet. Once urbanshakespeare.com is live, this form will deliver straight to the collective's inbox."
+    n.textContent= ok ? "Thanks. This is the preview site, so pitches aren't sent yet. For now, email your pitch to info@urbanshakespeare.com."
                       : "Add your name and a valid email address so we can reply.";
   });
 })();
