@@ -244,7 +244,29 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .lb .lb-prev,.lb .lb-next{position:absolute;top:50%;transform:translateY(-50%)}
 .lb .lb-prev{left:0}.lb .lb-next{right:0}
 @media (max-width:520px){.lb .lb-prev,.lb .lb-next{top:auto;bottom:0;transform:none}}
+
+/* creators */
+.creator{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:56px;align-items:start;margin-top:40px}
+.creator > *{min-width:0}
+.portrait-ph{aspect-ratio:4/5;max-width:100%;border:1px solid var(--curtain);background:radial-gradient(70% 60% at 50% 35%,#231d12,var(--ink) 75%);display:grid;place-items:center;align-content:center;gap:14px}
+.portrait-ph .mono{width:110px;height:110px;border-radius:50%;border:2px solid var(--brass);display:grid;place-items:center;font-family:var(--f-mark);font-size:2.6rem;letter-spacing:.06em;background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+.portrait-ph .label{color:var(--dust)}
+.creator .bio{display:grid;gap:18px}
+.creator .bio h2{font-family:var(--f-mark);font-weight:400;font-size:clamp(2.6rem,6vw,4rem);letter-spacing:.03em;line-height:.95}
+.creator .role{font-family:var(--f-display);font-style:italic;font-size:var(--step-1);color:var(--brass)}
+.creator .bio p{color:color-mix(in srgb,var(--paper) 88%,var(--dust));font-size:1.04rem}
+.credits{display:grid;border-top:1px solid var(--curtain);margin-top:6px}
+.credits div{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 20px;padding:14px 0;border-bottom:1px solid var(--curtain)}
+.credits b{font-family:var(--f-mark);font-weight:400;font-size:1.3rem;letter-spacing:.04em}
+.credits span{color:var(--dust);font-size:.9rem}
+.credits em{font-style:normal;grid-row:1 / span 2;grid-column:2;align-self:center;font-stretch:75%;font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:.66rem;color:var(--brass)}
+.cocreator{margin-top:64px;display:grid;grid-template-columns:120px minmax(0,1fr);gap:28px;align-items:center;border:1px solid var(--curtain);background:var(--stage);padding:24px}
+.cocreator .portrait-ph{aspect-ratio:1}
+.cocreator .portrait-ph .mono{width:72px;height:72px;font-size:1.7rem}
+.cocreator h3{font-family:var(--f-mark);font-weight:400;font-size:1.8rem;letter-spacing:.03em}
 @media (max-width:860px){
+  .creator{grid-template-columns:1fr;gap:28px}
+  .creator .portrait-ph{max-width:340px}
   .feature{grid-template-columns:1fr}
   .lockup{display:none}
   .hero,.two,.story,.join{grid-template-columns:1fr;gap:32px}
@@ -254,6 +276,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   nav.main{margin-left:0;width:100%}
 }
 @media (max-width:520px){
+  .cocreator{grid-template-columns:80px minmax(0,1fr);gap:16px;padding:16px}
+  .credits em{grid-row:auto;grid-column:1}
   .split{grid-template-columns:1fr}
   .ep{grid-template-columns:48px 1fr}
   .ep .label{grid-column:2}
@@ -274,6 +298,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <a href="#burning-cole">Burning Cole</a>
       <a href="#ikenga">Ikenga</a>
       <a href="#collective">Our Story</a>
+      <a href="#creators">Creators</a>
       <a href="#join">Join</a>
     </nav>
   </div>
@@ -592,7 +617,47 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <p>Urban Shakespeare brings together writers with stories that haven't been seen, along with the people who can help bring them to the screen. Alone, a writer without a network or funding hits a wall. Together, we're harder to ignore.</p>
       <h2>Why AI</h2>
       <p>For years the barrier was money. You needed finance to shoot a pilot and a network to get it seen. In 2026 that has changed. We write the scripts and episodes, then use AI to produce the trailers, posters and artwork that show what each series will look like. Every project on this site is a proof that it can be done, and an invitation to make it for real.</p>
-      <p class="label" style="margin-top:12px">Founder · Obi (Alex) Offomata</p>
+      <p class="label" style="margin-top:12px">Founder · Obi (Alex) Offomata · <a href="#creators" style="color:var(--brass)">Meet the creators →</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- CREATORS -->
+<section class="view" id="v-creators" hidden>
+  <div class="wrap">
+    <p class="label">The creators</p>
+    <h1 style="font-size:var(--step-4);font-weight:500;margin:12px 0 0">The people behind the stories</h1>
+
+    <article class="creator">
+      <div class="portrait-ph" role="img" aria-label="Photo of Obi Offomata coming soon"><span class="mono">OO</span><span class="label">Photo coming soon</span></div>
+      <div class="bio">
+        <span class="label">Founder</span>
+        <h2>Obi Offomata</h2>
+        <p class="role">Creator, writer, director &amp; producer</p>
+        <p>Obi Offomata is a London writer and the founder of Urban Shakespeare. He grew up in the inner city of Southeast London, in a working-class family that came to the UK from Nigeria, and that world runs through everything he writes: its streets, its ambition and the people who rarely see themselves on screen.</p>
+        <p>His first series, <em>Urban Shakespeare</em>, was written more than a decade ago: a full twelve-episode season with a scripted pilot. Years working in London's nightclubs and bars gave him <em>Burning Cole</em>, the dark comedy he created with Camilo Parra-Braun from his own blog about that life. His latest, <em>Ikenga</em>, is a crime action thriller about a Black British lawyer bound to the London firm that secretly runs the country.</p>
+        <p>In 2020, during lockdown, he set up Urban Shakespeare as a writers' collective, to open the door for storytellers without the network or the money to get their work made. Today he writes the scripts and directs and produces the concept trailers that bring each show to life.</p>
+        <div class="quote" style="font-size:var(--step-2);max-width:none">"If I open the door, others can come through."</div>
+        <div class="credits">
+          <div><b>Ikenga</b><span>Crime action thriller · Creator &amp; writer</span><em>In development</em></div>
+          <div><b>Burning Cole</b><span>British dark comedy · Co-creator &amp; co-writer · Director &amp; producer of the official trailer</span><em>Trailer out now</em></div>
+          <div><b>Urban Shakespeare</b><span>Drama · Creator &amp; writer · Twelve-episode season</span><em>Season one written</em></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="cocreator">
+      <div class="portrait-ph" role="img" aria-label="Photo of Camilo Parra-Braun coming soon"><span class="mono">CP</span></div>
+      <div style="display:grid;gap:6px">
+        <span class="label">Co-creator, Burning Cole</span>
+        <h3>Camilo Parra-Braun</h3>
+        <p style="color:var(--dust)">Co-creator and co-writer of <em>Burning Cole</em>. Full bio coming soon.</p>
+      </div>
+    </article>
+
+    <div class="cta-row" style="margin-top:48px">
+      <a class="btn solid" href="#join">Join the collective</a>
+      <a class="btn" href="#collective">Read our story</a>
     </div>
   </div>
 </section>
@@ -648,7 +713,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 <script>
 (function(){
-  const views=['home','slate','trailers','burning-cole','ikenga','collective','join'];
+  const views=['home','slate','trailers','burning-cole','ikenga','collective','creators','join'];
   function show(){
     let v=(location.hash||'#home').slice(1);
     if(!views.includes(v)) v='home';
