@@ -246,6 +246,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
 @media (max-width:520px){.lb .lb-prev,.lb .lb-next{top:auto;bottom:0;transform:none}}
 
 /* creators */
+.portrait{display:block;width:100%;max-width:100%;aspect-ratio:4/5;object-fit:cover;border:1px solid var(--curtain);box-shadow:0 30px 60px rgba(0,0,0,.45)}
 .creator{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:56px;align-items:start;margin-top:40px}
 .creator > *{min-width:0}
 .portrait-ph{aspect-ratio:4/5;max-width:100%;border:1px solid var(--curtain);background:radial-gradient(70% 60% at 50% 35%,#231d12,var(--ink) 75%);display:grid;place-items:center;align-content:center;gap:14px}
@@ -274,7 +275,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
 .follow{margin-top:28px;display:grid;gap:12px}
 @media (max-width:860px){
   .creator{grid-template-columns:1fr;gap:28px}
-  .creator .portrait-ph{max-width:340px}
+  .creator .portrait-ph,.creator .portrait{max-width:340px}
   .feature{grid-template-columns:1fr}
   .lockup{display:none}
   .hero,.two,.story,.join{grid-template-columns:1fr;gap:32px}
@@ -637,7 +638,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
     <h1 style="font-size:var(--step-4);font-weight:500;margin:12px 0 0">The people behind the stories</h1>
 
     <article class="creator">
-      <div class="portrait-ph" role="img" aria-label="Photo of Obi Offomata coming soon"><span class="mono">OO</span><span class="label">Photo coming soon</span></div>
+      <img class="portrait" src="people/obi-offomata.jpg" alt="Obi Offomata, founder of Urban Shakespeare" width="800" height="1000">
       <div class="bio">
         <span class="label">Founder</span>
         <h2>Obi Offomata</h2>
