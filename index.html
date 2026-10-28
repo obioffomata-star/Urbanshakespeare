@@ -295,6 +295,12 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
 .char img.pimg{display:block;width:calc(100% + 44px);height:auto;max-width:none;aspect-ratio:4/5;object-fit:cover;margin:-22px -22px 6px;cursor:zoom-in;transition:filter .25s}
 .char img.pimg:hover{filter:brightness(1.08)}
 .char img.pimg:focus-visible{outline:2px solid var(--brass);outline-offset:-4px}
+
+/* youtube player */
+.yt{position:relative;aspect-ratio:16/9;max-width:100%;overflow:hidden;cursor:pointer}
+.yt img,.yt iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0;display:block}
+.ytplay{position:absolute;inset:0;margin:auto;width:84px;height:84px;border-radius:50%;border:2px solid var(--paper);background:rgba(0,0,0,.45);color:var(--paper);display:grid;place-items:center;cursor:pointer;transition:transform .2s,background .2s}
+.yt:hover .ytplay{transform:scale(1.06);background:rgba(226,86,31,.85);border-color:transparent}
 @media (max-width:860px){
   .cast.main8{grid-template-columns:repeat(2,minmax(0,1fr))}
   .creator{grid-template-columns:1fr;gap:28px}
@@ -444,7 +450,10 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
     <h1 style="font-size:var(--step-4);font-weight:500;margin:12px 0 18px">See the shows before they're made</h1>
     <p style="color:var(--dust);font-size:var(--step-1);font-weight:300">Every trailer here is an AI-generated concept, built from our scripts to show what each series will look and feel like on screen.</p>
     <div class="feature">
-      <div class="vid"><video controls preload="none" playsinline poster="video/burning-cole-trailer-poster.jpg" aria-label="Burning Cole official trailer"><source src="video/burning-cole-trailer.mp4" type="video/mp4"></video></div>
+      <div style="display:grid;min-width:0">
+        <div class="vid yt" data-yt="EewkAORAeq4"><img src="video/burning-cole-trailer-poster.jpg" alt="" width="1280" height="720"><button type="button" class="ytplay" aria-label="Play the Burning Cole official trailer"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button></div>
+        <a class="btn" href="https://youtu.be/EewkAORAeq4" target="_blank" rel="noopener" style="justify-self:start;margin-top:14px">Watch on YouTube</a>
+      </div>
       <div class="info">
         <span class="label">Now showing</span>
         <h2>Burning Cole</h2>
@@ -543,7 +552,8 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
       </div>
     </div>
     <div class="panel" data-panel="trailer" hidden>
-      <div class="vid"><video controls preload="none" playsinline poster="video/burning-cole-trailer-poster.jpg" aria-label="Burning Cole official trailer"><source src="video/burning-cole-trailer.mp4" type="video/mp4"></video></div>
+      <div class="vid yt" data-yt="EewkAORAeq4"><img src="video/burning-cole-trailer-poster.jpg" alt="" width="1280" height="720"><button type="button" class="ytplay" aria-label="Play the Burning Cole official trailer"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button></div>
+      <a class="btn" href="https://youtu.be/EewkAORAeq4" target="_blank" rel="noopener" style="justify-self:start;margin-top:14px">Watch on YouTube</a>
       <div class="eps">
         <div class="ep"><span class="n">1</span><div><h3>Official Trailer</h3><p>Cole Sinclair, Club 108, and a life about to catch up with him.</p></div><span class="label">1:21 · Out now</span></div>
         <div class="ep"><span class="n">2</span><div><h3>Meet the Cast</h3><p>Cole introduces the five people who run his life.</p></div><span class="label">Coming soon</span></div>
@@ -873,6 +883,12 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
     document.addEventListener('click',e=>{if(!menu.hidden&&!e.target.closest('header.mast'))set(false);});
     window.addEventListener('hashchange',()=>set(false));
     window.matchMedia('(min-width:861px)').addEventListener('change',e=>{if(e.matches)set(false);});
+  })();
+
+  (function(){
+    const play=box=>{if(box.querySelector('iframe'))return;const f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+box.dataset.yt+'?autoplay=1&rel=0&modestbranding=1';f.title='Burning Cole official trailer';f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;box.dataset.html=box.innerHTML;box.innerHTML='';box.appendChild(f);};
+    document.querySelectorAll('.yt').forEach(box=>box.addEventListener('click',()=>play(box)));
+    window.addEventListener('hashchange',()=>document.querySelectorAll('.yt').forEach(box=>{if(box.dataset.html){box.innerHTML=box.dataset.html;delete box.dataset.html;}}));
   })();
 </script>
 
