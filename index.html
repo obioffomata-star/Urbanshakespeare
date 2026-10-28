@@ -273,6 +273,22 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
 .soc.soon{color:var(--dust);opacity:.6;cursor:default}
 .soc.soon:hover{color:var(--dust);border-color:var(--curtain)}
 .follow{margin-top:28px;display:grid;gap:12px}
+
+/* mobile menu */
+.burger{display:none;appearance:none;background:none;border:1px solid var(--curtain);color:var(--paper);width:44px;height:44px;border-radius:2px;cursor:pointer;place-items:center;flex:none}
+.burger:hover,.burger[aria-expanded="true"]{border-color:var(--brass);color:var(--brass)}
+.mmenu{border-top:1px solid var(--curtain);background:var(--ink)}
+.mmenu .wrap{display:grid;gap:22px;padding-block:22px 28px}
+.mmenu .grp{display:grid;gap:2px}
+.mmenu .grp > .label{color:var(--brass);margin-bottom:6px}
+.mmenu a{font-family:var(--f-mark);font-size:1.6rem;letter-spacing:.05em;text-decoration:none;color:var(--paper);padding:6px 0;display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.mmenu a small{font-family:var(--f-body);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dust)}
+.mmenu a[aria-current="page"],.mmenu a:hover{color:var(--brass)}
+/* The Line placeholder card */
+.p-line::before{background:radial-gradient(80% 60% at 50% 45%,#1c1912,var(--ink) 75%)}
+.p-line::after{content:"";position:absolute;left:0;right:0;top:46%;height:2px;background:var(--gold);box-shadow:0 0 18px rgba(212,175,55,.45);z-index:-1}
+.p-line h3{font-family:var(--f-mark);font-weight:400;font-size:3.4rem;letter-spacing:.12em}
+.p-line .status{color:var(--brass)}
 @media (max-width:860px){
   .creator{grid-template-columns:1fr;gap:28px}
   .creator .portrait-ph,.creator .portrait{max-width:340px}
@@ -282,7 +298,12 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
   .billing{border-left:none;padding-left:0;border-top:1px solid var(--curtain);padding-top:24px}
   .manifesto{grid-template-columns:1fr}
   .story .rail{position:static}
-  nav.main{margin-left:0;width:100%}
+  .brand .bt{display:none}
+  .mast .wrap{flex-wrap:nowrap;gap:10px;padding-block:10px}
+  nav.main{flex-wrap:nowrap;width:auto;margin-left:auto;gap:0}
+  nav.main a{padding:8px 9px;font-size:.72rem}
+  nav.main a.desk{display:none}
+  .burger{display:grid}
 }
 @media (max-width:520px){
   .cocreator{grid-template-columns:80px minmax(0,1fr);gap:16px;padding:16px}
@@ -304,13 +325,32 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
       <a href="#home">Home</a>
       <a href="#slate">The Slate</a>
       <a href="#trailers">Trailers</a>
-      <a href="#burning-cole">Burning Cole</a>
-      <a href="#ikenga">Ikenga</a>
-      <a href="#collective">Our Story</a>
-      <a href="#creators">Creators</a>
-      <a href="#join">Join</a>
+      <a class="desk" href="#burning-cole">Burning Cole</a>
+      <a class="desk" href="#ikenga">Ikenga</a>
+      <a class="desk" href="#collective">Our Story</a>
+      <a class="desk" href="#creators">Creators</a>
+      <a class="desk" href="#join">Join</a>
     </nav>
+    <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mmenu"><svg class="b-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg><svg class="b-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" hidden><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   </div>
+  <nav class="mmenu" id="mmenu" aria-label="More" hidden>
+    <div class="wrap">
+      <div class="grp"><span class="label">The series</span>
+        <a href="#burning-cole">Burning Cole <small>Dark comedy</small></a>
+        <a href="#ikenga">Ikenga <small>Crime thriller</small></a>
+      </div>
+      <div class="grp"><span class="label">Trailers</span>
+        <a href="#trailers">Burning Cole <small>Out now</small></a>
+        <a href="#trailers">Ikenga <small>Coming soon</small></a>
+      </div>
+      <div class="grp"><span class="label">About</span>
+        <a href="#collective">Our Story</a>
+        <a href="#creators">Creators</a>
+        <a href="#join">Join the collective</a>
+        <a href="#join">Contact us</a>
+      </div>
+    </div>
+  </nav>
 </header>
 
 <main>
@@ -347,12 +387,12 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
         <span class="sr">Ikenga, a crime action thriller series. 250 years of service. One way out.</span>
         <span class="status">In development</span>
       </a>
-      <a class="poster p-us" href="#slate">
-        <span class="label genre">Drama · Series</span>
-        <h3>Urban Shakespeare</h3>
-        <p class="tag">The series that started it all. 12 episodes written.</p>
-        <span class="status">Season one written</span>
-      </a>
+      <div class="poster p-line">
+        <span class="label genre">Original series</span>
+        <h3>The Line</h3>
+        <p class="tag">The next original series from Urban Shakespeare.</p>
+        <span class="status">In development</span>
+      </div>
       <a class="poster p-open" href="#join">
         <span class="label genre">Your genre here</span>
         <h3>Your story</h3>
@@ -383,7 +423,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
     <div class="posters" style="margin-top:40px">
       <a class="poster p-cole art" href="#burning-cole"><img class="key" src="posters/burning-cole-cole.jpg" alt="" width="1024" height="1536"><span class="sr">Burning Cole, a dark comedy series</span><span class="status">Concept trailer</span></a>
       <a class="poster p-ikenga art" href="#ikenga"><img class="key" src="posters/ikenga-skull-motorbike.jpg" alt="" width="1024" height="1536"><span class="sr">Ikenga, a crime action thriller series</span><span class="status">In development</span></a>
-      <a class="poster p-us" href="#collective"><span class="label genre">Drama</span><h3>Urban Shakespeare</h3><span class="status">Season one written</span></a>
+      <div class="poster p-line"><span class="label genre">Original series</span><h3>The Line</h3><span class="status">In development</span></div>
       <a class="poster p-open" href="#join"><span class="label genre">Open slot</span><h3>Your story</h3><span class="status">Submissions open</span></a>
     </div>
   </div>
@@ -734,7 +774,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
     let v=(location.hash||'#home').slice(1);
     if(!views.includes(v)) v='home';
     views.forEach(id=>{document.getElementById('v-'+id).hidden=(id!==v)});
-    document.querySelectorAll('nav.main a').forEach(a=>{
+    document.querySelectorAll('nav.main a, .mmenu a').forEach(a=>{
       a.getAttribute('href')==='#'+v ? a.setAttribute('aria-current','page') : a.removeAttribute('aria-current');
     });
     document.querySelectorAll('video').forEach(v=>{if(!v.paused)v.pause()});
@@ -809,6 +849,17 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
       a.href=url; a.target='_blank'; a.rel='noopener'; a.classList.remove('soon');
       a.setAttribute('aria-label',name); a.title=name;
     });
+  })();
+
+  (function(){
+    const btn=document.querySelector('.burger'), menu=document.getElementById('mmenu'); if(!btn||!menu) return;
+    const set=open=>{menu.hidden=!open;btn.setAttribute('aria-expanded',open);btn.setAttribute('aria-label',open?'Close menu':'Open menu');btn.querySelector('.b-open').toggleAttribute('hidden',open);btn.querySelector('.b-close').toggleAttribute('hidden',!open);};
+    btn.addEventListener('click',()=>set(menu.hidden));
+    menu.addEventListener('click',e=>{if(e.target.closest('a'))set(false);});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!menu.hidden){set(false);btn.focus();}});
+    document.addEventListener('click',e=>{if(!menu.hidden&&!e.target.closest('header.mast'))set(false);});
+    window.addEventListener('hashchange',()=>set(false));
+    window.matchMedia('(min-width:861px)').addEventListener('change',e=>{if(e.matches)set(false);});
   })();
 </script>
 
