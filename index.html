@@ -202,6 +202,11 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
 .theme{display:flex;align-items:center;gap:16px;margin-top:14px;padding:14px 18px;border:1px solid var(--curtain);background:var(--stage);max-width:520px}
 .theme button{flex:none;width:48px;height:48px;border-radius:50%;border:1px solid var(--accent,var(--brass));background:transparent;color:var(--accent,var(--brass));cursor:pointer;display:grid;place-items:center}
 .theme button:hover{background:color-mix(in srgb,var(--accent,var(--brass)) 15%,transparent)}
+.theme .i-pause{display:none}
+.theme button.is-playing .i-play{display:none}
+.theme button.is-playing .i-pause{display:block}
+.theme button.is-playing{background:var(--accent,var(--brass));color:var(--ink)}
+.theme.is-playing{border-color:var(--accent,var(--brass))}
 .theme .meta{flex:1;min-width:0;display:grid;gap:6px}
 .theme .meta strong{font-weight:600;font-size:.95rem}
 .theme .bar{height:4px;background:var(--curtain);cursor:pointer;position:relative}
@@ -592,7 +597,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
         <div><span class="label">Created by</span><strong>Obi Offomata</strong></div>
       </div>
       <div class="theme" id="ikengaTheme">
-        <button type="button" aria-label="Play the Ikenga theme"><svg class="i-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg><svg class="i-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg></button>
+        <button type="button" aria-label="Play the Ikenga theme"><svg class="i-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg><svg class="i-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg></button>
         <div class="meta">
           <span class="label">Main theme</span>
           <strong>Ikenga</strong>
@@ -841,7 +846,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
     const box=document.getElementById('ikengaTheme'); if(!box) return;
     const a=box.querySelector('audio'), b=box.querySelector('button'), bar=box.querySelector('.bar'), fill=bar.querySelector('span'), t=box.querySelector('time');
     const fmt=s=>{s=Math.floor(s||0);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
-    const ui=()=>{const p=!a.paused;box.querySelector('.i-play').hidden=p;box.querySelector('.i-pause').hidden=!p;b.setAttribute('aria-label',(p?'Pause':'Play')+' the Ikenga theme')};
+    const ui=()=>{const p=!a.paused;b.classList.toggle('is-playing',p);box.classList.toggle('is-playing',p);b.setAttribute('aria-label',(p?'Pause':'Play')+' the Ikenga theme')};
     b.addEventListener('click',()=>{a.paused?a.play().catch(()=>{}):a.pause()});
     a.addEventListener('play',ui);a.addEventListener('pause',ui);a.addEventListener('ended',ui);
     a.addEventListener('timeupdate',()=>{const d=a.duration||159;fill.style.width=(a.currentTime/d*100)+'%';t.textContent=fmt(a.currentTime)+' / '+fmt(d);bar.setAttribute('aria-valuenow',Math.floor(a.currentTime))});
