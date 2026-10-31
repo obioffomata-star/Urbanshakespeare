@@ -8,6 +8,15 @@
 <meta property="og:title" content="Urban Shakespeare">
 <meta property="og:description" content="A London writers' collective. Stories from the inner city, ready for the screen.">
 <link rel="icon" type="image/png" href="brand/logo-emblem.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://urbanshakespeare.com/">
+<meta property="og:image" content="https://urbanshakespeare.com/brand/logo-lockup.png">
+<meta property="og:site_name" content="Urban Shakespeare ENT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@urbanShakesENT">
+<meta name="theme-color" content="#0b0b0c">
+<link rel="canonical" href="https://urbanshakespeare.com/">
+<link rel="apple-touch-icon" href="brand/logo-emblem.png">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wdth,wght@62..125,300..800&family=Cormorant:ital,wght@0,500;0,700;1,500;1,700&display=swap">
@@ -353,7 +362,69 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
   .ep .label{grid-column:2}
   .gallery div:first-child{grid-column:auto;aspect-ratio:1}
 }
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* Score button (site music, loads only when pressed) */
+.score{flex:none;appearance:none;background:none;border:1px solid var(--curtain);color:var(--dust);height:44px;padding:0 14px;display:inline-flex;align-items:center;gap:10px;cursor:pointer;font-family:var(--f-body);font-stretch:80%;font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:.68rem;margin-left:8px}
+.score:hover,.score.on{border-color:var(--brass);color:var(--brass)}
+.score .eq{display:inline-flex;align-items:flex-end;gap:2px;height:14px}
+.score .eq i{display:block;width:3px;height:4px;background:currentColor}
+.score.on .eq i{animation:eq .9s ease-in-out infinite alternate}
+.score.on .eq i:nth-child(2){animation-delay:-.3s}.score.on .eq i:nth-child(3){animation-delay:-.6s}.score.on .eq i:nth-child(4){animation-delay:-.15s}
+@keyframes eq{from{height:3px}to{height:14px}}
+.score .t{display:none}.score{padding:0;width:44px;justify-content:center}
+.brand{flex:none}.brand .bt b{white-space:nowrap}
+@media (min-width:861px) and (max-width:1320px){nav.main a{padding:8px 8px}}
+@media (min-width:861px) and (max-width:1100px){nav.main a{letter-spacing:.08em;padding:8px 7px}.brand .bt{display:none}}
+@media (max-width:860px){.mast .score{display:none}}
+.mscore{display:flex;align-items:center;gap:12px;width:100%;appearance:none;background:none;border:1px solid var(--curtain);color:var(--paper);padding:14px 16px;font:inherit;font-weight:600;cursor:pointer;text-align:left}
+.mscore .eq{display:inline-flex;align-items:flex-end;gap:2px;height:14px;color:var(--brass)}
+.mscore .eq i{display:block;width:3px;height:4px;background:currentColor}
+.mscore.on{border-color:var(--brass)}
+.mscore.on .eq i{animation:eq .9s ease-in-out infinite alternate}
+.mscore.on .eq i:nth-child(2){animation-delay:-.3s}.mscore.on .eq i:nth-child(3){animation-delay:-.6s}.mscore.on .eq i:nth-child(4){animation-delay:-.15s}
+.mscore small{color:var(--dust);font-weight:400;margin-left:auto}
+/* Footer legal row */
+.legal{width:100%;display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:space-between;border-top:1px solid var(--curtain);padding-top:18px;margin-top:6px;font-size:.78rem}
+.legal nav{display:flex;flex-wrap:wrap;gap:6px 18px}
+.legal a,.legal button{color:var(--dust);text-decoration:none;background:none;border:0;padding:0;font:inherit;cursor:pointer}
+.legal a:hover,.legal button:hover{color:var(--brass)}
+/* Cookie banner + settings */
+.cookie{position:fixed;left:16px;right:16px;bottom:16px;z-index:60;max-width:980px;margin:0 auto;background:var(--stage);border:1px solid var(--brass);box-shadow:0 30px 80px rgba(0,0,0,.6);padding:22px 24px;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:18px 22px;align-items:center}
+.cookie img{width:44px;height:44px}
+.cookie h2{font-family:var(--f-mark);font-weight:400;font-size:1.5rem;letter-spacing:.06em;color:var(--brass);line-height:1}
+.cookie p{font-size:.9rem;color:color-mix(in srgb,var(--paper) 85%,var(--dust));margin-top:6px}
+.cookie p a{color:var(--brass)}
+.cookie .acts{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.cookie .btn{padding:12px 18px;font-size:.72rem}
+.cookie .btn.solid{padding-inline:26px}
+@media (max-width:760px){.cookie{grid-template-columns:1fr;padding:18px}.cookie img{display:none}.cookie .acts{justify-content:stretch}.cookie .acts .btn{flex:1;justify-content:center}}
+.cmodal{position:fixed;inset:0;z-index:70;background:rgba(0,0,0,.72);display:grid;place-items:center;padding:16px}
+.cmodal .box{width:min(560px,100%);max-height:calc(100dvh - 32px);overflow:auto;background:var(--stage);border:1px solid var(--brass);padding:26px;display:grid;gap:18px}
+.cmodal h2{font-family:var(--f-mark);font-weight:400;font-size:1.9rem;letter-spacing:.05em;color:var(--brass);line-height:1}
+.crow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 18px;align-items:center;border-top:1px solid var(--curtain);padding-top:16px}
+.crow b{font-weight:600}
+.crow p{grid-column:1;font-size:.86rem;color:var(--dust)}
+.sw{position:relative;width:48px;height:26px;grid-row:1 / span 2;grid-column:2}
+.sw input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.sw span{position:absolute;inset:0;border-radius:13px;background:var(--curtain);transition:background .2s}
+.sw span::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--paper);transition:transform .2s}
+.sw input:checked+span{background:var(--brass)}
+.sw input:checked+span::after{transform:translateX(22px);background:var(--ink)}
+.sw input:disabled+span{opacity:.6}
+.sw input:focus-visible+span{outline:2px solid var(--brass);outline-offset:2px}
+.cmodal .acts{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+/* Policy page */
+.policy{max-width:820px;display:grid;gap:14px;padding-block:20px 40px}
+.policy h1{font-size:var(--step-4);font-weight:500}
+.policy h2{font-size:var(--step-2);font-weight:500;margin-top:22px}
+.policy p,.policy li{color:color-mix(in srgb,var(--paper) 88%,var(--dust))}
+.policy ul{padding-left:20px;display:grid;gap:6px}
+.policy a{color:var(--brass)}
+.policy table{width:100%;border-collapse:collapse;font-size:.9rem}
+.policy th,.policy td{border:1px solid var(--curtain);padding:10px 12px;text-align:left;vertical-align:top}
+.policy th{color:var(--brass);font-weight:600;background:var(--stage)}
+.policy .tw{overflow-x:auto}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}.score.on .eq i{animation:none;height:10px}}
 </style>
 </head>
 <body>
@@ -371,6 +442,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
       <a class="desk" href="#creators">Creators</a>
       <a class="desk" href="#join">Join</a>
     </nav>
+    <button class="score" type="button" id="scoreBtn" aria-pressed="false" aria-label="Play the Urban Shakespeare score" title="Play the score"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="t">Score</span></button>
     <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mmenu"><svg class="b-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg><svg class="b-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" hidden><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   </div>
   <nav class="mmenu" id="mmenu" aria-label="More" hidden>
@@ -389,6 +461,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
         <a href="#join">Join the collective</a>
         <a href="#join">Contact us</a>
       </div>
+      <button type="button" class="mscore" id="mScoreBtn" aria-pressed="false"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="mt">Play the score</span><small>Ikenga main theme</small></button>
     </div>
   </nav>
 </header>
@@ -820,8 +893,67 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
       </div>
       <div class="field"><label for="f-log">Your logline</label><textarea id="f-log" placeholder="One or two sentences: who it's about, what they want, what stands in the way."></textarea></div>
       <button class="btn solid" type="submit">Send my pitch</button>
+      <p style="font-size:.8rem;color:var(--dust)">Opens your email app with your pitch ready to send. See our <a href="#privacy" style="color:var(--brass)">Privacy Policy</a>.</p>
       <p class="notice" id="formNote" hidden></p>
     </form>
+  </div>
+</section>
+<!-- PRIVACY -->
+<section class="view" id="v-privacy" hidden>
+  <div class="wrap">
+    <article class="policy">
+      <p class="label">Legal</p>
+      <h1>Privacy &amp; Cookie Policy</h1>
+      <p><em>Last updated: 31 October 2026</em></p>
+      <p>This policy explains what information Urban Shakespeare ENT ("we", "us") collects when you visit urbanshakespeare.com or contact us, how we use it and the choices you have. We are based in London, United Kingdom, and we handle personal data in line with the UK General Data Protection Regulation (UK GDPR), the Data Protection Act 2018 and the Privacy and Electronic Communications Regulations (PECR).</p>
+
+      <h2>Who we are</h2>
+      <p>Urban Shakespeare ENT is a London writers' collective. For anything about this policy or your data, email <a href="mailto:info@urbanshakespeare.com">info@urbanshakespeare.com</a>.</p>
+
+      <h2>What we collect</h2>
+      <ul>
+        <li><strong>Messages and pitches you send us.</strong> When you use the Join form, it opens your own email app with your details filled in. We receive only what you choose to send: usually your name, email address, role, working title, genre and logline.</li>
+        <li><strong>Website analytics, only if you allow it.</strong> If you accept analytics cookies, we use Google Analytics to understand how the site is used: pages viewed, how long visits last, roughly where visitors are in the world (country or city level), the device and browser, how people found us, and which buttons are pressed, such as trailer plays and social links. This information is grouped together. We do not use it to identify you, and we do not use advertising features.</li>
+      </ul>
+
+      <h2>How we use it and why we are allowed to</h2>
+      <ul>
+        <li>To read and reply to your pitch or message, and to talk with you about joining the collective. The lawful basis is our <strong>legitimate interest</strong> in running the collective, or taking steps at your request before entering an agreement.</li>
+        <li>To measure and improve the website. The lawful basis is your <strong>consent</strong>, which you can withdraw at any time in Cookie settings.</li>
+      </ul>
+      <p>We never sell your data. We do not use your pitch for anything other than considering it, and we treat every pitch as confidential.</p>
+
+      <h2>Cookies</h2>
+      <p>Cookies are small files saved by your browser. Analytics cookies are switched off until you choose to accept them. You can change your mind at any time using <button type="button" class="linkbtn" data-cookie-settings style="background:none;border:0;padding:0;color:var(--brass);font:inherit;cursor:pointer;text-decoration:underline">Cookie settings</button>.</p>
+      <div class="tw"><table>
+        <thead><tr><th>Name</th><th>Type</th><th>Purpose</th><th>Lasts</th></tr></thead>
+        <tbody>
+          <tr><td>us_consent</td><td>Essential (stored in your browser)</td><td>Remembers your cookie choice so we don't ask on every visit.</td><td>12 months</td></tr>
+          <tr><td>_ga</td><td>Analytics (Google)</td><td>Distinguishes one visitor from another so visits can be counted.</td><td>Up to 2 years</td></tr>
+          <tr><td>_ga_&lt;ID&gt;</td><td>Analytics (Google)</td><td>Keeps track of a visit (session) for counting purposes.</td><td>Up to 2 years</td></tr>
+        </tbody>
+      </table></div>
+      <p><strong>Embedded videos.</strong> Trailers are hosted on YouTube. We use YouTube's privacy-enhanced mode, and nothing is loaded from YouTube until you press play. Once you play a video, YouTube's own privacy policy applies.</p>
+      <p><strong>Fonts.</strong> The site's typefaces are served by Google Fonts. Your browser connects to Google to download them, which shares your IP address with Google. No cookies are set for this.</p>
+
+      <h2>Who else sees it</h2>
+      <p>Google (Analytics, Fonts, YouTube), our email provider Google Workspace, and our website host GitHub process data on our behalf. Some of them may transfer data outside the UK. Where they do, they use legal safeguards such as the UK International Data Transfer Addendum or the UK–US Data Bridge.</p>
+
+      <h2>How long we keep it</h2>
+      <ul>
+        <li>Pitches and emails: for as long as we are discussing the project with you, then up to two years, unless you ask us to delete them sooner.</li>
+        <li>Analytics data: kept by Google Analytics for 14 months, then deleted automatically.</li>
+      </ul>
+
+      <h2>Your rights</h2>
+      <p>You can ask to see the data we hold about you, correct it, delete it, restrict or object to how we use it, or receive a copy of it. You can also withdraw consent at any time. Email <a href="mailto:info@urbanshakespeare.com">info@urbanshakespeare.com</a> and we'll reply within one month. If you're unhappy with how we've handled your data, you can complain to the Information Commissioner's Office at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>.</p>
+
+      <h2>AI-generated content</h2>
+      <p>Trailers, posters and character art on this site are AI-generated concept work, made to show what each series could look like. All stories, characters, titles and scripts are original works owned by their creators and Urban Shakespeare ENT. Please don't copy or reuse them without permission.</p>
+
+      <h2>Changes</h2>
+      <p>If we change this policy, we'll update it here and change the date at the top.</p>
+    </article>
   </div>
 </section>
 </main>
@@ -838,15 +970,46 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
 
 <footer>
   <div class="wrap">
-    <span style="display:flex;align-items:center;gap:10px"><img src="brand/logo-emblem.png" alt="" width="28" height="28">© 2026 Urban Shakespeare ENT · London</span>
+    <span style="display:flex;align-items:center;gap:10px"><img src="brand/logo-emblem.png" alt="" width="28" height="28">Urban Shakespeare ENT · London</span>
     <nav class="social" aria-label="Urban Shakespeare on social media"><a class="soc soon" data-social="youtube" aria-label="YouTube (coming soon)" title="YouTube: coming soon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.7 15.1V8.9l5.8 3.1z"/></svg></a><a class="soc soon" data-social="x" aria-label="X (Twitter) (coming soon)" title="X (Twitter): coming soon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.2 2.3h3.4l-7.4 8.4 8.7 11.5h-6.8l-5.3-7-6.1 7H1.3l7.9-9L.9 2.3h7l4.8 6.4zm-1.2 17.9h1.9L7.1 4.2H5z"/></svg></a><a class="soc soon" data-social="instagram" aria-label="Instagram (coming soon)" title="Instagram: coming soon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a class="soc soon" data-social="facebook" aria-label="Facebook (coming soon)" title="Facebook: coming soon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v8h4v-8h3l.5-4h-3.5V8.8c0-.5.3-.8.5-.8z"/></svg></a></nav>
     <a href="mailto:info@urbanshakespeare.com" style="color:var(--dust)">info@urbanshakespeare.com</a>
+    <div class="legal">
+      <span>© 2026 Urban Shakespeare ENT. All rights reserved. Trailers, posters and character art are AI-generated concept work.</span>
+      <nav aria-label="Legal"><a href="#privacy">Privacy &amp; cookies</a><button type="button" data-cookie-settings>Cookie settings</button><a href="mailto:info@urbanshakespeare.com">Contact</a></nav>
+    </div>
   </div>
 </footer>
 
+<div class="cookie" id="cookieBanner" role="region" aria-label="Cookie notice" hidden>
+  <img src="brand/logo-emblem.png" alt="" width="44" height="44">
+  <div>
+    <h2>Your privacy</h2>
+    <p>We'd like to use analytics cookies to see how people find and use this site, so we can make it better. They're off unless you say yes. <a href="#privacy">Privacy &amp; Cookie Policy</a></p>
+  </div>
+  <div class="acts">
+    <button type="button" class="btn" data-cookie="settings">Manage</button>
+    <button type="button" class="btn" data-cookie="reject">Reject</button>
+    <button type="button" class="btn solid" data-cookie="accept">Accept all</button>
+  </div>
+</div>
+
+<div class="cmodal" id="cookieModal" role="dialog" aria-modal="true" aria-labelledby="cmTitle" hidden>
+  <div class="box">
+    <h2 id="cmTitle">Cookie settings</h2>
+    <p style="color:var(--dust);font-size:.92rem">Choose which cookies Urban Shakespeare can use. You can change this at any time from the link in the footer.</p>
+    <div class="crow"><b>Essential</b><label class="sw"><input type="checkbox" checked disabled aria-label="Essential cookies, always on"><span></span></label><p>Needed for the site to work and to remember your choice. Always on.</p></div>
+    <div class="crow"><b>Analytics</b><label class="sw"><input type="checkbox" id="cmAnalytics" aria-label="Analytics cookies"><span></span></label><p>Google Analytics: counts visits and button presses so we know what people enjoy. No advertising.</p></div>
+    <div class="acts">
+      <button type="button" class="btn" data-cookie="reject">Reject all</button>
+      <button type="button" class="btn" data-cookie="save">Save choices</button>
+      <button type="button" class="btn solid" data-cookie="accept">Accept all</button>
+    </div>
+  </div>
+</div>
+
 <script>
 (function(){
-  const views=['home','slate','trailers','burning-cole','ikenga','collective','creators','join'];
+  const views=['home','slate','trailers','burning-cole','ikenga','collective','creators','join','privacy'];
   function show(){
     let v=(location.hash||'#home').slice(1);
     if(!views.includes(v)) v='home';
@@ -873,8 +1036,13 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
     const n=document.getElementById('formNote');
     const ok=document.getElementById('f-name').value.trim() && /\S+@\S+\.\S+/.test(document.getElementById('f-email').value);
     n.hidden=false;
-    n.textContent= ok ? "Thanks. This is the preview site, so pitches aren't sent yet. For now, email your pitch to info@urbanshakespeare.com."
-                      : "Add your name and a valid email address so we can reply.";
+    if(!ok){ n.textContent="Add your name and a valid email address so we can reply."; return; }
+    const v=id=>document.getElementById(id).value.trim();
+    const body=['Name: '+v('f-name'),'Email: '+v('f-email'),'I am a: '+v('f-role'),'Working title: '+(v('f-title')||'-'),'Genre: '+(v('f-genre')||'-'),'','Logline:',v('f-log')||'-','','Sent from urbanshakespeare.com'].join('\n');
+    const subject='Pitch: '+(v('f-title')||v('f-role'))+' - '+v('f-name');
+    window.usTrack&&usTrack('generate_lead',{role:v('f-role')});
+    location.href='mailto:info@urbanshakespeare.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+    n.textContent="Your email app should open with your pitch ready to send. If nothing happens, email it to info@urbanshakespeare.com.";
   });
 })();
 
@@ -888,7 +1056,6 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
     a.addEventListener('timeupdate',()=>{const d=a.duration||159;fill.style.width=(a.currentTime/d*100)+'%';t.textContent=fmt(a.currentTime)+' / '+fmt(d);bar.setAttribute('aria-valuenow',Math.floor(a.currentTime))});
     bar.addEventListener('click',e=>{const r=bar.getBoundingClientRect();const d=a.duration||159;a.currentTime=(e.clientX-r.left)/r.width*d});
     bar.addEventListener('keydown',e=>{if(e.key==='ArrowRight')a.currentTime+=5;if(e.key==='ArrowLeft')a.currentTime-=5});
-    window.addEventListener('hashchange',()=>{if(location.hash!=='#ikenga')a.pause()});
   })();
 
   (function(){
@@ -943,6 +1110,64 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
     const play=box=>{if(box.querySelector('iframe'))return;const f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+box.dataset.yt+'?autoplay=1&rel=0&modestbranding=1';f.title='Burning Cole official trailer';f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;box.dataset.html=box.innerHTML;box.innerHTML='';box.appendChild(f);};
     document.querySelectorAll('.yt').forEach(box=>box.addEventListener('click',()=>play(box)));
     window.addEventListener('hashchange',()=>document.querySelectorAll('.yt').forEach(box=>{if(box.dataset.html){box.innerHTML=box.dataset.html;delete box.dataset.html;}}));
+  })();
+
+  /* ===== Cookie consent + Google Analytics (loads only after consent) ===== */
+  (function(){
+    const GA_ID = ''; // e.g. 'G-XXXXXXXXXX' - paste the Measurement ID here to switch analytics on
+    const KEY='us_consent', banner=document.getElementById('cookieBanner'), modal=document.getElementById('cookieModal'), chk=document.getElementById('cmAnalytics');
+    let loaded=false;
+    const read=()=>{try{const c=JSON.parse(localStorage.getItem(KEY)||'null');if(c&&Date.now()-c.t<365*864e5)return c}catch(e){}return null};
+    const write=a=>{try{localStorage.setItem(KEY,JSON.stringify({a:!!a,t:Date.now()}))}catch(e){}};
+    window.dataLayer=window.dataLayer||[]; window.gtag=window.gtag||function(){dataLayer.push(arguments)};
+    gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
+    function load(){
+      if(loaded||!GA_ID) return; loaded=true;
+      gtag('consent','update',{analytics_storage:'granted'});
+      const s=document.createElement('script'); s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID; document.head.appendChild(s);
+      gtag('js',new Date()); gtag('config',GA_ID,{anonymize_ip:true,page_path:'/'+(location.hash||'#home')});
+    }
+    function unload(){
+      gtag('consent','update',{analytics_storage:'denied'});
+      document.cookie.split(';').map(c=>c.trim().split('=')[0]).filter(n=>/^_ga/.test(n)).forEach(n=>{
+        ['', '.'+location.hostname.replace(/^www\./,'')].forEach(d=>document.cookie=n+'=; Max-Age=0; path=/'+(d?'; domain='+d:''));
+      });
+    }
+    window.usTrack=(name,params)=>{ if(loaded) gtag('event',name,params||{}); };
+    const decide=a=>{ write(a); banner.hidden=true; modal.hidden=true; a?load():unload(); };
+    const openSettings=()=>{ const c=read(); chk.checked=!!(c&&c.a); modal.hidden=false; chk.focus(); };
+    document.addEventListener('click',e=>{
+      const b=e.target.closest('[data-cookie],[data-cookie-settings]'); if(!b) return;
+      if(b.hasAttribute('data-cookie-settings')||b.dataset.cookie==='settings') return openSettings();
+      if(b.dataset.cookie==='accept') decide(true);
+      if(b.dataset.cookie==='reject') decide(false);
+      if(b.dataset.cookie==='save') decide(chk.checked);
+    });
+    modal.addEventListener('click',e=>{ if(e.target===modal) modal.hidden=true; });
+    document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&!modal.hidden) modal.hidden=true; });
+    const c=read(); if(!c) banner.hidden=false; else if(c.a) load();
+
+    /* page views for each section (the site uses #links, so tell Analytics when the section changes) */
+    window.addEventListener('hashchange',()=>{ if(loaded) gtag('event','page_view',{page_location:location.href,page_path:'/'+(location.hash||'#home'),page_title:document.title+' · '+(location.hash||'#home').slice(1)}); });
+    /* button presses */
+    document.addEventListener('click',e=>{
+      const s=e.target.closest('[data-social]'); if(s) return usTrack('social_click',{platform:s.dataset.social});
+      const y=e.target.closest('.yt'); if(y) return usTrack('trailer_play',{video:y.dataset.yt,section:(location.hash||'#home').slice(1)});
+      const l=e.target.closest('a[href*="youtu"]'); if(l) return usTrack('youtube_link',{url:l.href});
+      const m=e.target.closest('a[href^="mailto:"]'); if(m) return usTrack('email_click',{});
+    });
+  })();
+
+  /* ===== Site score: plays the Ikenga theme; nothing downloads until pressed ===== */
+  (function(){
+    const btn=document.getElementById('scoreBtn'), a=document.querySelector('#ikengaTheme audio'); if(!btn||!a) return;
+    const mb=document.getElementById('mScoreBtn');
+    const ui=()=>{const on=!a.paused;btn.classList.toggle('on',on);btn.setAttribute('aria-pressed',on);btn.setAttribute('aria-label',(on?'Pause':'Play')+' the Urban Shakespeare score');btn.title=on?'Pause the score':'Play the score';
+      if(mb){mb.classList.toggle('on',on);mb.setAttribute('aria-pressed',on);mb.querySelector('.mt').textContent=on?'Pause the score':'Play the score';}};
+    const toggle=src=>{ if(a.paused){a.play().catch(()=>{}); window.usTrack&&usTrack('score_play',{source:src});} else a.pause(); };
+    btn.addEventListener('click',()=>toggle('header')); if(mb) mb.addEventListener('click',()=>toggle('menu'));
+    a.addEventListener('play',ui); a.addEventListener('pause',ui); a.addEventListener('ended',ui);
+    document.querySelectorAll('.yt').forEach(b=>b.addEventListener('click',()=>a.pause()));
   })();
 </script>
 
